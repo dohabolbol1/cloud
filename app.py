@@ -49,7 +49,7 @@ with app.app_context():
     my_conn = pymysql.connect(host='database-1.cwrbhkqwy2hu.us-east-1.rds.amazonaws.com', user='doha', password='12345678', db='database-1')
     my_conn.cursor().execute("DROP table IF EXISTS memcache_config")
     db.create_all()
-    my_conn.cursor().execute('INSERT INTO memcache_config VALUES (?, ?, ?, ?, ?, ?, ?)', (5000000, "Random", 0, 0, 0, 0, 0)) #Default values for memcache_config
+    my_conn.cursor().execute('INSERT INTO memcache_config VALUES (%s, %s, %s, %s, %s, %s, %s)', (5000000, "Random", 0, 0, 0, 0, 0)) #Default values for memcache_config
     my_conn.commit()
     my_conn.close()
 
