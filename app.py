@@ -98,7 +98,7 @@ def put_in_memcache(key, value, img_size):
     if (mem_config.items_size + img_size) > mem_config.capacity_MB:
         if(mem_config.replace_policy == "Random"):
             keyid, photo = random.choice(list(memcache.items()))
-            invalidateKey(keyid, os.stat(mem_cache[key_id]).st_size)
+            invalidateKey(keyid, os.stat(memcache[keyid]).st_size)
         else:
             lru_key = list(memcache.keys())[0]
             invalidateKey(lru_key, os.stat(memcache[lru_key]).st_size)
@@ -264,4 +264,4 @@ if __name__ == "__main__":
     app.config['SESSION_TYPE'] = 'filesystem'
 
     sess.init_app(app)
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
