@@ -264,4 +264,4 @@ if __name__ == "__main__":
     app.config['SESSION_TYPE'] = 'filesystem'
 
     sess.init_app(app)
-    app.run(debug=False)
+    app.run(debug=True)
