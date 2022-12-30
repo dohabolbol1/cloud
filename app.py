@@ -6,7 +6,7 @@ from sqlalchemy import null
 from sqlalchemy.sql import func
 from datetime import datetime
 from werkzeug.utils import secure_filename
-
+from flask_session.__init__ import Session
 import sqlite3
 import atexit
 import random
